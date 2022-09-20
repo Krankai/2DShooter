@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 8022954021460962557}
   - component: {fileID: 4327850106528714602}
   - component: {fileID: 584683058982610388}
+  - component: {fileID: 1061666227}
   m_Layer: 9
   m_Name: HyperStraightShooter
   m_TagString: Untagged
@@ -363,6 +364,20 @@ PolygonCollider2D:
       - {x: 0.20059763, y: -0.000687561}
       - {x: 0.20102777, y: 0.0011285357}
       - {x: 0.0015425861, y: 0.21713944}
+--- !u!114 &1061666227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8282131552441171991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39fb77c143d8c84c987fe899633685b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateDirection: 1
+  speed: 15
 --- !u!1 &8282131553695226669
 GameObject:
   m_ObjectHideFlags: 0
