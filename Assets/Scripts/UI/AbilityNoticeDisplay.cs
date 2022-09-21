@@ -4,30 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// This class inherits from the UIelement class and handles updating the lives count display
+/// This class inherits from the UIelement class and handles updating the ability notice display
 /// </summary>
-public class LivesCountDisplay : UIelement
+public class AbilityNoticeDisplay : UIelement
 {
+    const string available = "Press T or Shift to activate thrusting";
+    const string cooldown = "On cooldown";
+
     [Tooltip("The text UI to use for display")]
     public Text displayText = null;
-
+    
     /// <summary>
     /// Description:
-    /// Updates the lives count display
+    /// Updates display for the usability of thrusting ability
     /// Inputs:
     /// none
     /// Returns:
     /// void (no return)
     /// </summary>
-    public void DisplayLivesCount()
+    public void DisplayAbilityNotice()
     {
-        if (displayText != null && !GameManager.isGameOver)
+        ThrustController thrustController = GameManager.instance.player.GetComponent<ThrustController>();
+        if (displayText != null)
         {
-            displayText.text = "x " + GameManager.lives.ToString();
+            displayText.text = (thrustController.isUsable) ? available : cooldown;
         }
     }
 
-    /// <summary>
+        /// <summary>
     /// Description:
     /// Overides the virtual UpdateUI function and uses the DisplayLivesCount to update
     /// Inputs:
@@ -41,6 +45,6 @@ public class LivesCountDisplay : UIelement
         base.UpdateUI();
 
         // The remaining code is only called for this sub-class of UIelement and not others
-        DisplayLivesCount();
+        DisplayAbilityNotice();
     }
 }
