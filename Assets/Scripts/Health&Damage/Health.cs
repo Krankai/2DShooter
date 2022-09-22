@@ -222,6 +222,8 @@ public class Health : MonoBehaviour
     void HandleDeathWithLives()
     {
         currentLives -= 1;
+        GameManager.UpdateUIElements();
+
         if (currentLives > 0)
         {
             Respawn();

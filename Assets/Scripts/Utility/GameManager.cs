@@ -39,6 +39,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Static getter for player lives
+    public static int lives
+    {
+        get
+        {
+            Health playerHealth = instance.player.GetComponent<Health>();
+            return playerHealth.useLives ? playerHealth.currentLives : 1;
+        }
+    }
+
+    // Static getter for gameover status
+    public static bool isGameOver
+    {
+        get { return instance.gameIsOver; }
+    }
+
     // The highest score obtained by this player
     [Tooltip("The highest score acheived on this device")]
     public int highScore = 0;

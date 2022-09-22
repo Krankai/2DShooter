@@ -23,6 +23,9 @@ public class Controller : MonoBehaviour
     //The InputManager to read input from
     private InputManager inputManager;
 
+    // The original speed
+    private float originalMoveSpeed;
+
     /// <summary>
     /// Enum which stores different aiming modes
     /// </summary>
@@ -83,6 +86,7 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         SetupInput();
+        originalMoveSpeed = moveSpeed;
     }
 
     /// <summary>
@@ -262,5 +266,25 @@ public class Controller : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Description:
+    /// Handles input and moves the player accordingly
+    /// Inputs: 
+    /// float multiplier
+    /// float duration
+    /// Returns: 
+    /// void (no return)
+    /// </summary>
+    public void AccelerateSpeed(float multiplier, float duration)
+    {
+        moveSpeed *= multiplier;
+        Invoke("ResetSpeed", duration);
+    }
+
+    public void ResetSpeed()
+    {
+        moveSpeed = originalMoveSpeed;
     }
 }
